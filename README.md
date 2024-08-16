@@ -1,16 +1,21 @@
-# ez_parky
+# Ez-Parky: Aplikasi Sistem Manajemen Parkir
 
-A new Flutter project.
+Ez Parky adalah aplikasi Flutter yang berfungsi untuk mengelola sistem parkir secara efisien. Dengan Ez Parky, Anda dapat mengontrol dan mengawasi berbagai aspek dari sistem parkir, termasuk pemantauan slot parkir, pembayaran, dan laporan analisis data.
 
-## Getting Started
+## Fitur Utama
 
-This project is a starting point for a Flutter application.
+Pemantauan Real-Time: Lacak slot parkir yang tersedia dan terisi secara langsung melalui peta interaktif di dalam aplikasi.
+Pemesanan dan Pembayaran: Pesan slot parkir melalui aplikasi, lakukan pembayaran dengan mudah menggunakan metode pembayaran yang disediakan.
+Manajemen Pengguna: Daftarkan pengguna baru, atur hak akses, dan kelola riwayat transaksi mereka.
+Laporan Analisis: Akses laporan dan analisis terperinci tentang penggunaan slot parkir, pendapatan, dan statistik lainnya.
+Notifikasi: Terima notifikasi real-time tentang status slot parkir, konfirmasi pemesanan, dan peringatan penting lainnya.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Kontribusi
+Kami senang menerima kontribusi dari komunitas. Jika Anda ingin berkontribusi pada Ez Parky, silakan ikuti langkah-langkah berikut:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Fork repositori ini.
+Buat branch fitur baru dengan deskripsi singkat.
+Lakukan perubahan yang diperlukan.
+Commit dan push perubahan Anda ke branch Anda.
+Ajukan pull request
