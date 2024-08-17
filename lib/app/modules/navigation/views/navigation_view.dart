@@ -21,6 +21,7 @@ class NavigationView extends GetView<NavigationController> {
   Widget build(BuildContext context) {
     final controller = Get.put(NavigationController());
     return Scaffold(
+      backgroundColor: Colors.white,
       bottomNavigationBar: Obx(() => BottomNavigationBar(
         showUnselectedLabels: false,
         onTap: (index) => controller.changeIndex(index),

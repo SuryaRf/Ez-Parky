@@ -11,6 +11,10 @@ void main() {
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor:
+            Colors.white, // Set background color to pure white
+      ),
     ),
   );
 }
