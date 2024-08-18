@@ -106,7 +106,7 @@ class DetailPlaceView extends GetView<DetailPlaceController> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       InkWell(
-                        onTap: () =>  Get.to(DetailFloorplanView()),
+                        onTap: () =>  Get.to(const DetailFloorplanView()),
                         child: Text(
                           "Lihat denah",
                           style: smallText.copyWith(fontWeight: FontWeight.w500),
