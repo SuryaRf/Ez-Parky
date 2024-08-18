@@ -1,5 +1,5 @@
-import 'package:ez_parky/app/data/colors.dart';
-import 'package:ez_parky/app/data/fonts.dart';
+import 'package:ez_parky/app/data/const/colors.dart';
+import 'package:ez_parky/app/data/const/fonts.dart';
 import 'package:ez_parky/app/modules/navigation/views/navigation_view.dart';
 import 'package:ez_parky/app/modules/signup/views/signup_view.dart';
 import 'package:flutter/gestures.dart';

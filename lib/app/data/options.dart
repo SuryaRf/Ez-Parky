@@ -1,9 +1,4 @@
-class Option {
-  final String title;
-  final String imgAsset;
-
-  Option({required this.title, required this.imgAsset});
-}
+import 'package:ez_parky/app/data/models/option.dart';
 
 List<Option> options = [
   Option(title: "Cari Parkir", imgAsset: "assets/icon/cariparkir.png"),

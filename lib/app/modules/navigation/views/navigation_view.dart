@@ -1,4 +1,4 @@
-import 'package:ez_parky/app/data/colors.dart';
+import 'package:ez_parky/app/data/const/colors.dart';
 import 'package:ez_parky/app/modules/history/views/history_view.dart';
 import 'package:ez_parky/app/modules/home/views/home_view.dart';
 import 'package:ez_parky/app/modules/profile/views/profile_view.dart';

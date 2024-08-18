@@ -1,10 +1,8 @@
 class Place {
   final String imgAsset;
+  final String name;
 
-  Place({required this.imgAsset});
+  Place(this.name, {required this.imgAsset});
 }
 
-List<Place> places = [
-  Place(imgAsset: "assets/img/mog.png"),
-  Place(imgAsset: "assets/img/cybermall.png"),
-];
+

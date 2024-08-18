@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../../../data/colors.dart';
-import '../../../data/fonts.dart';
+import '../../../data/const/colors.dart';
+import '../../../data/const/fonts.dart';
 import '../controllers/signup_controller.dart';
 
 class SignupView extends GetView<SignupController> {

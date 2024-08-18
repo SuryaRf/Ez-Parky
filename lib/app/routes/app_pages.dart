@@ -1,5 +1,10 @@
 import 'package:get/get.dart';
 
+import '../data/models/place.dart';
+import '../modules/detail_floorplan/bindings/detail_floorplan_binding.dart';
+import '../modules/detail_floorplan/views/detail_floorplan_view.dart';
+import '../modules/detail_place/bindings/detail_place_binding.dart';
+import '../modules/detail_place/views/detail_place_view.dart';
 import '../modules/history/bindings/history_binding.dart';
 import '../modules/history/views/history_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -47,7 +52,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.NAVIGATION,
-      page: () =>  NavigationView(),
+      page: () => NavigationView(),
       binding: NavigationBinding(),
     ),
     GetPage(
@@ -64,6 +69,21 @@ class AppPages {
       name: _Paths.PROFILE,
       page: () => const ProfileView(),
       binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.DETAIL_PLACE,
+      page: () {
+        final Place place = Get.arguments
+            as Place; // Ensure this matches with the passed argument
+        return DetailPlaceView(
+            place: place); // Ensure the parameter name matches
+      },
+      binding: DetailPlaceBinding(),
+    ),
+    GetPage(
+      name: _Paths.DETAIL_FLOORPLAN,
+      page: () => const DetailFloorplanView(),
+      binding: DetailFloorplanBinding(),
     ),
   ];
 }
