@@ -1,11 +1,16 @@
 import 'package:ez_parky/app/data/const/colors.dart';
 import 'package:ez_parky/app/data/const/fonts.dart';
 import 'package:ez_parky/app/modules/detail_place/views/detail_place_view.dart';
+import 'package:ez_parky/app/modules/onparking/views/onparking_view.dart';
 import 'package:ez_parky/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../data/options.dart';
 import '../../../data/places.dart';
+import '../../booking/views/booking_view.dart';
+import '../../cariparkir/views/cariparkir_view.dart';
+import '../../lainnya/views/lainnya_view.dart';
+import '../../sekitarmu/views/sekitarmu_view.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -15,6 +20,13 @@ class HomeView extends GetView<HomeController> {
     final height =
         MediaQuery.of(Get.context!).size.height - AppBar().preferredSize.height;
     final width = MediaQuery.of(context).size.width;
+    final Map<String, Widget> pageRoutes = {
+      'Cari Parkir': CariparkirView(),
+      'Booking': BookingView(),
+      'Sekitarmu': SekitarmuView(),
+      'On Parking': OnparkingView(),
+      'Lainnya': LainnyaView(),
+    };
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -90,8 +102,8 @@ class HomeView extends GetView<HomeController> {
                                   children: [
                                     TextSpan(
                                       text: "Gausah bingung cari ",
-                                      style:
-                                          smallText.copyWith(color: Colors.white),
+                                      style: smallText.copyWith(
+                                          color: Colors.white),
                                     ),
                                     TextSpan(
                                       text: "PARKIR",
@@ -102,8 +114,8 @@ class HomeView extends GetView<HomeController> {
                                     ),
                                     TextSpan(
                                       text: " dimana",
-                                      style:
-                                          smallText.copyWith(color: Colors.white),
+                                      style: smallText.copyWith(
+                                          color: Colors.white),
                                     ),
                                   ],
                                 ),
@@ -113,8 +125,8 @@ class HomeView extends GetView<HomeController> {
                                   children: [
                                     TextSpan(
                                       text: "Kan ada ",
-                                      style:
-                                          smallText.copyWith(color: Colors.white),
+                                      style: smallText.copyWith(
+                                          color: Colors.white),
                                     ),
                                     TextSpan(
                                       text: "EZ PARKY",
@@ -201,36 +213,53 @@ class HomeView extends GetView<HomeController> {
                 padding: EdgeInsets.only(top: height * 0.33),
                 child: SizedBox(
                   height: height * 0.3,
-                  child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: options.length,
-                      itemBuilder: (context, index) {
-                        return SizedBox(
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 15, right: 10),
-                            child: Column(
-                              children: [
-                                Image.asset(
-                                  options[index].imgAsset,
-                                  height: height * 0.06,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: options.map((option) {
+                      return GestureDetector(
+                        onTap: () {
+                          // Navigate to the corresponding page
+                          if (pageRoutes.containsKey(option.title)) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => pageRoutes[option.title]!,
+                              ),
+                            );
+                          } else {
+                            print(
+                                '${option.title} does not have a corresponding page.');
+                          }
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 15, right: 10),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                option.imgAsset,
+                                height: height * 0.06,
+                              ),
+                              SizedBox(
+                                height: height * 0.01,
+                              ),
+                              Text(
+                                option.title,
+                                style: smallText.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 11,
                                 ),
-                                SizedBox(
-                                  height: height * 0.01,
-                                ),
-                                Text(
-                                  options[index].title,
-                                  style: smallText.copyWith(
-                                      fontWeight: FontWeight.bold, fontSize: 11),
-                                )
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                        );
-                      }),
+                        ),
+                      );
+                    }).toList(),
+                  ),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: height * 0.47, left: width * 0.06),
+                padding:
+                    EdgeInsets.only(top: height * 0.47, left: width * 0.06),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

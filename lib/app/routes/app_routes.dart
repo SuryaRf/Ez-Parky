@@ -13,6 +13,13 @@ abstract class Routes {
   static const PROFILE = _Paths.PROFILE;
   static const DETAIL_PLACE = _Paths.DETAIL_PLACE;
   static const DETAIL_FLOORPLAN = _Paths.DETAIL_FLOORPLAN;
+  static const SCAN_PAGE = _Paths.SCAN_PAGE;
+  static const BOOKING = _Paths.BOOKING;
+  static const CARIPARKIR = _Paths.CARIPARKIR;
+  static const SEKITARMU = _Paths.SEKITARMU;
+  static const ONPARKING = _Paths.ONPARKING;
+  static const LAINNYA = _Paths.LAINNYA;
+  static const CHOOSE_SLOT = _Paths.CHOOSE_SLOT;
 }
 
 abstract class _Paths {
@@ -27,4 +34,11 @@ abstract class _Paths {
   static const PROFILE = '/profile';
   static const DETAIL_PLACE = '/detail-place';
   static const DETAIL_FLOORPLAN = '/detail-floorplan';
+  static const SCAN_PAGE = '/scan-page';
+  static const BOOKING = '/booking';
+  static const CARIPARKIR = '/cariparkir';
+  static const SEKITARMU = '/sekitarmu';
+  static const ONPARKING = '/onparking';
+  static const LAINNYA = '/lainnya';
+  static const CHOOSE_SLOT = '/choose-slot';
 }
