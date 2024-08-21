@@ -324,8 +324,7 @@ class HomeView extends GetView<HomeController> {
                             // final place = places[index];
                             return InkWell(
                               onTap: () {
-                                // Navigate to DetailPlaceView with the selected place
-                                // When navigating
+  
                                 Get.toNamed(
                                   Routes.DETAIL_PLACE,
                                   arguments: places[

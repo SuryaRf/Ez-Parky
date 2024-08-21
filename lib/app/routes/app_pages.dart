@@ -7,6 +7,8 @@ import '../modules/cariparkir/bindings/cariparkir_binding.dart';
 import '../modules/cariparkir/views/cariparkir_view.dart';
 import '../modules/choose_slot/bindings/choose_slot_binding.dart';
 import '../modules/choose_slot/views/choose_slot_view.dart';
+import '../modules/complete_payment/bindings/complete_payment_binding.dart';
+import '../modules/complete_payment/views/complete_payment_view.dart';
 import '../modules/detail_floorplan/bindings/detail_floorplan_binding.dart';
 import '../modules/detail_floorplan/views/detail_floorplan_view.dart';
 import '../modules/detail_place/bindings/detail_place_binding.dart';
@@ -132,6 +134,11 @@ class AppPages {
       name: _Paths.CHOOSE_SLOT,
       page: () => const ChooseSlotView(),
       binding: ChooseSlotBinding(),
+    ),
+    GetPage(
+      name: _Paths.COMPLETE_PAYMENT,
+      page: () => const CompletePaymentView(),
+      binding: CompletePaymentBinding(),
     ),
   ];
 }

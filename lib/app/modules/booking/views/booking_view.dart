@@ -1,19 +1,216 @@
 import 'package:ez_parky/app/data/const/colors.dart';
 import 'package:ez_parky/app/data/const/fonts.dart';
 import 'package:ez_parky/app/modules/choose_slot/views/choose_slot_view.dart';
+import 'package:ez_parky/app/modules/complete_payment/views/complete_payment_view.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import '../controllers/booking_controller.dart';
 
 class BookingView extends GetView<BookingController> {
   const BookingView({Key? key}) : super(key: key);
+
+  void _showBookingConfirmation(BuildContext context) {
+    final height =
+        MediaQuery.of(Get.context!).size.height - AppBar().preferredSize.height;
+    final width = MediaQuery.of(context).size.width;
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (BuildContext context) {
+        return Container(
+          height: height * 1,
+          width: width * 1,
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+          ),
+          child: Padding(
+            padding:  EdgeInsets.only(top: height * 0.01),
+            child: Center(
+              
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
+                    child: Text(
+                      "Pembayaran",
+                      style: poppins.copyWith(
+                        color: blueText,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 22,
+                      ),
+                    ),
+                  ),
+                  Center(
+                    child: Padding(
+                      padding: EdgeInsets.only(top: height * 0.01),
+                      child: Text(
+                        "Matos Pintu Utara",
+                        style: poppins.copyWith(
+                          color: blueText,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Center(
+                    child: Text(
+                      "Jl. Veteran No. 2 Malang, Indonesia, 6511",
+                      style: poppins.copyWith(
+                        color: blueText,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                        top: height * 0.04,
+                        bottom: height * 0.003,
+                        left: width * 0.03),
+                    child: Text(
+                      "Nomor Kendaraan",
+                      style: poppins.copyWith(
+                        color: blueText,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: width * 0.03),
+                    child: Text(
+                      "L 6750 K",
+                      style: poppins.copyWith(
+                        color: blueText,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                        top: height * 0.04,
+                        bottom: height * 0.003,
+                        left: width * 0.03),
+                    child: Text(
+                      "Biaya Parkir Per Jam",
+                      style: poppins.copyWith(
+                        color: blueText,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: width * 0.03),
+                    child: Text(
+                      "Rp5000,-",
+                      style: poppins.copyWith(
+                        color: blueText,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                        top: height * 0.04,
+                        bottom: height * 0.003,
+                        left: width * 0.03),
+                    child: Text(
+                      "Lokasi Slot",
+                      style: poppins.copyWith(
+                        color: blueText,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: width * 0.03),
+                    child: Text(
+                      "GF - B14",
+                      style: poppins.copyWith(
+                        color: blueText,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                        top: height * 0.04,
+                        bottom: height * 0.003,
+                        left: width * 0.03),
+                    child: Text(
+                      "Pembayaran",
+                      style: poppins.copyWith(
+                        color: blueText,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: width * 0.03, right: width * 0.03, top: height * 0.01),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "QRIS >",
+                          style: poppins.copyWith(
+                            color: blueText,
+                            fontSize: 14,
+                          ),
+                        ),
+                        Text(
+                          "BRImo",
+                          style: poppins.copyWith(
+                            color: blueText,
+                            fontSize: 14,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: height * 0.06, ),
+                  Padding(
+                    padding:  EdgeInsets.only(left: width * 0.06, right: width * 0.06,),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Get.to(const CompletePaymentView());
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: orange,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "BAYAR",
+                          style: poppins.copyWith(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final height =
         MediaQuery.of(Get.context!).size.height - AppBar().preferredSize.height;
     final width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -98,7 +295,8 @@ class BookingView extends GetView<BookingController> {
                 children: [
                   Text(
                     "Lokasi*",
-                    style: poppins.copyWith(color: blueText, fontWeight: FontWeight.bold),
+                    style: poppins.copyWith(
+                        color: blueText, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: height * 0.01),
                   Text(
@@ -128,7 +326,8 @@ class BookingView extends GetView<BookingController> {
                 children: [
                   Text(
                     "Nomor Kendaraan*",
-                    style: poppins.copyWith(color: blueText, fontWeight: FontWeight.bold),
+                    style: poppins.copyWith(
+                        color: blueText, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: height * 0.01),
                   Text(
@@ -139,7 +338,7 @@ class BookingView extends GetView<BookingController> {
                         fontSize: 14),
                   ),
                   Container(
-                    margin: EdgeInsets.only(
+                    margin: const EdgeInsets.only(
                         top:
                             5.0), // Optional: Adds some spacing between the text and underline
                     height: 1.3, // Height of the underline
@@ -160,7 +359,8 @@ class BookingView extends GetView<BookingController> {
                     onTap: () => Get.to(const ChooseSlotView()),
                     child: Text(
                       "Pilih Slot   >",
-                      style: poppins.copyWith(color: blueText, fontWeight: FontWeight.bold),
+                      style: poppins.copyWith(
+                          color: blueText, fontWeight: FontWeight.bold),
                     ),
                   ),
                   SizedBox(height: height * 0.01),
@@ -189,15 +389,25 @@ class BookingView extends GetView<BookingController> {
             ),
             Padding(
               padding: EdgeInsets.only(top: height * 0.3, left: width * 0.05),
-              child: Container(
-                height: height * 0.07,
-                width: width * 0.9,
-                decoration: BoxDecoration(
-                  color: orange,
-                  borderRadius: BorderRadius.circular(20),
+              child: GestureDetector(
+                onTap: () {
+                  _showBookingConfirmation(context);
+                },
+                child: Container(
+                  height: height * 0.07,
+                  width: width * 0.9,
+                  decoration: BoxDecoration(
+                    color: orange,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Center(
+                      child: Text("Pesan Sekarang",
+                          style: poppins.copyWith(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold))),
                 ),
-                child: Center(child: Text("Booking Now", style: poppins.copyWith(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold))),
-              )
+              ),
             )
           ],
         ),

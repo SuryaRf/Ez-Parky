@@ -205,22 +205,22 @@ class ChooseSlotView extends GetView<ChooseSlotController> {
               child:  Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text(
+                  const Text(
                     "<",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   Padding(
                     padding:  EdgeInsets.only(right: width * 0.2),
-                    child: Text(
+                    child: const Text(
                       "A",
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
-                  Text(
+                  const Text(
                     "B",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  Text(
+                  const Text(
                     ">",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),

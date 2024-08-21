@@ -20,6 +20,7 @@ abstract class Routes {
   static const ONPARKING = _Paths.ONPARKING;
   static const LAINNYA = _Paths.LAINNYA;
   static const CHOOSE_SLOT = _Paths.CHOOSE_SLOT;
+  static const COMPLETE_PAYMENT = _Paths.COMPLETE_PAYMENT;
 }
 
 abstract class _Paths {
@@ -41,4 +42,5 @@ abstract class _Paths {
   static const ONPARKING = '/onparking';
   static const LAINNYA = '/lainnya';
   static const CHOOSE_SLOT = '/choose-slot';
+  static const COMPLETE_PAYMENT = '/complete-payment';
 }
