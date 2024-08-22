@@ -1,3 +1,4 @@
+import 'package:ez_parky/app/modules/booking/views/booking_view.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -227,7 +228,29 @@ class ChooseSlotView extends GetView<ChooseSlotController> {
                 ],
               ),
             ),
-            choose_slot_layouts(width: width)
+            choose_slot_layouts(width: width),
+            Padding(
+              padding: EdgeInsets.only(top: height * 0.04, left: width * 0.01),
+              child: GestureDetector(
+                onTap: () {
+                  Get.off(const BookingView());
+                },
+                child: Container(
+                  height: height * 0.07,
+                  width: width * 0.9,
+                  decoration: BoxDecoration(
+                    color: orange,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Center(
+                      child: Text("Pilih",
+                          style: poppins.copyWith(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold))),
+                ),
+              ),
+            )
           ],
         ),
       ),

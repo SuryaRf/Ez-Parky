@@ -67,7 +67,7 @@ class BookingView extends GetView<BookingController> {
                     padding: EdgeInsets.only(
                         top: height * 0.04,
                         bottom: height * 0.003,
-                        left: width * 0.03),
+                        left: width * 0.05),
                     child: Text(
                       "Nomor Kendaraan",
                       style: poppins.copyWith(
@@ -78,7 +78,7 @@ class BookingView extends GetView<BookingController> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: width * 0.03),
+                    padding: EdgeInsets.only(left: width * 0.05),
                     child: Text(
                       "L 6750 K",
                       style: poppins.copyWith(
@@ -91,7 +91,7 @@ class BookingView extends GetView<BookingController> {
                     padding: EdgeInsets.only(
                         top: height * 0.04,
                         bottom: height * 0.003,
-                        left: width * 0.03),
+                        left: width * 0.05),
                     child: Text(
                       "Biaya Parkir Per Jam",
                       style: poppins.copyWith(
@@ -102,7 +102,7 @@ class BookingView extends GetView<BookingController> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: width * 0.03),
+                    padding: EdgeInsets.only(left: width * 0.05),
                     child: Text(
                       "Rp5000,-",
                       style: poppins.copyWith(
@@ -115,7 +115,7 @@ class BookingView extends GetView<BookingController> {
                     padding: EdgeInsets.only(
                         top: height * 0.04,
                         bottom: height * 0.003,
-                        left: width * 0.03),
+                        left: width * 0.05),
                     child: Text(
                       "Lokasi Slot",
                       style: poppins.copyWith(
@@ -126,7 +126,7 @@ class BookingView extends GetView<BookingController> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: width * 0.03),
+                    padding: EdgeInsets.only(left: width * 0.05),
                     child: Text(
                       "GF - B14",
                       style: poppins.copyWith(
@@ -139,7 +139,7 @@ class BookingView extends GetView<BookingController> {
                     padding: EdgeInsets.only(
                         top: height * 0.04,
                         bottom: height * 0.003,
-                        left: width * 0.03),
+                        left: width * 0.05),
                     child: Text(
                       "Pembayaran",
                       style: poppins.copyWith(
@@ -150,7 +150,7 @@ class BookingView extends GetView<BookingController> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: width * 0.03, right: width * 0.03, top: height * 0.01),
+                    padding: EdgeInsets.only(left: width * 0.05, right: width * 0.05, top: height * 0.01),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -173,7 +173,7 @@ class BookingView extends GetView<BookingController> {
                   ),
                   SizedBox(height: height * 0.06, ),
                   Padding(
-                    padding:  EdgeInsets.only(left: width * 0.06, right: width * 0.06,),
+                    padding:  EdgeInsets.only(left: width * 0.05, right: width * 0.06,),
                     child: ElevatedButton(
                       onPressed: () {
                         Get.to(const CompletePaymentView());
