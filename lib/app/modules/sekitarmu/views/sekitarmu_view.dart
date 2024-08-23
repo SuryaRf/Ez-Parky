@@ -5,10 +5,11 @@ import 'package:get/get.dart';
 
 import '../../../data/const/colors.dart';
 import '../../../data/const/fonts.dart';
+import '../../around_detail/views/around_detail_view.dart';
 import '../controllers/sekitarmu_controller.dart';
 
 class SekitarmuView extends GetView<SekitarmuController> {
-  const SekitarmuView({Key? key}) : super(key: key);
+  const SekitarmuView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -159,104 +160,109 @@ class SekitarmuView extends GetView<SekitarmuController> {
                 child: ListView.builder(
                   itemCount: placeRecomendations.length,
                   itemBuilder: (context, index) {
-                    return Padding(
-                      padding: EdgeInsets.only(
-                          left: width * 0.05,
-                          right: width * 0.05,
-                          bottom: height * 0.02),
-                      child: Container(
-                        height: height * 0.1,
-                        width: width * 0.9,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(7),
-                            color: Colors.white,
-                            border: Border.all(color: Colors.grey)),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(left: width * 0.02),
-                              child: Container(
-                                height: height * 0.05,
-                                width: width * 0.10,
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    border: Border.all(color: Colors.grey)),
+                    return GestureDetector(
+                      onTap: () => Get.to(
+                        () => AroundDetailView(placeRecomendations[index]),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                            left: width * 0.05,
+                            right: width * 0.05,
+                            bottom: height * 0.02),
+                        child: Container(
+                          height: height * 0.1,
+                          width: width * 0.9,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(7),
+                              color: Colors.white,
+                              border: Border.all(color: Colors.grey)),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(left: width * 0.02),
+                                child: Container(
+                                  height: height * 0.05,
+                                  width: width * 0.10,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      border: Border.all(color: Colors.grey)),
+                                ),
                               ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: width * 0.02),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    placeRecomendations[index].name,
-                                    style: poppins.copyWith(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 13,
-                                        color: Colors.black),
-                                  ),
-                                  Text(
-                                    placeRecomendations[index].type,
-                                    style: poppins.copyWith(fontSize: 10),
-                                  ),
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.only(top: height * 0.01),
-                                    child: Row(
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                            right: width * 0.02,
-                                          ),
-                                          child: Text(
-                                              placeRecomendations[index]
-                                                  .distance,
-                                              style: poppins.copyWith(
-                                                  fontSize: 10)),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                            right: width * 0.02,
-                                          ),
-                                          child: Text(
-                                            "|",
-                                            style:
-                                                poppins.copyWith(fontSize: 10),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                              right: width * 0.02),
-                                          child: Text(
-                                              placeRecomendations[index]
-                                                  .duration,
-                                              style: poppins.copyWith(
-                                                  fontSize: 10)),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                            right: width * 0.02,
-                                          ),
-                                          child: Text(
-                                            "|",
-                                            style:
-                                                poppins.copyWith(fontSize: 10),
-                                          ),
-                                        ),
-                                        Text(
-                                            placeRecomendations[index]
-                                                .description,
-                                            style:
-                                                poppins.copyWith(fontSize: 10)),
-                                      ],
+                              Padding(
+                                padding: EdgeInsets.only(left: width * 0.02),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      placeRecomendations[index].name,
+                                      style: poppins.copyWith(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 13,
+                                          color: Colors.black),
                                     ),
-                                  )
-                                ],
-                              ),
-                            )
-                          ],
+                                    Text(
+                                      placeRecomendations[index].type,
+                                      style: poppins.copyWith(fontSize: 10),
+                                    ),
+                                    Padding(
+                                      padding:
+                                          EdgeInsets.only(top: height * 0.01),
+                                      child: Row(
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                              right: width * 0.02,
+                                            ),
+                                            child: Text(
+                                                placeRecomendations[index]
+                                                    .distance,
+                                                style: poppins.copyWith(
+                                                    fontSize: 10)),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                              right: width * 0.02,
+                                            ),
+                                            child: Text(
+                                              "|",
+                                              style:
+                                                  poppins.copyWith(fontSize: 10),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                                right: width * 0.02),
+                                            child: Text(
+                                                placeRecomendations[index]
+                                                    .duration,
+                                                style: poppins.copyWith(
+                                                    fontSize: 10)),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                              right: width * 0.02,
+                                            ),
+                                            child: Text(
+                                              "|",
+                                              style:
+                                                  poppins.copyWith(fontSize: 10),
+                                            ),
+                                          ),
+                                          Text(
+                                              placeRecomendations[index]
+                                                  .description,
+                                              style:
+                                                  poppins.copyWith(fontSize: 10)),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     );

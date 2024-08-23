@@ -21,6 +21,8 @@ abstract class Routes {
   static const LAINNYA = _Paths.LAINNYA;
   static const CHOOSE_SLOT = _Paths.CHOOSE_SLOT;
   static const COMPLETE_PAYMENT = _Paths.COMPLETE_PAYMENT;
+  static const SPLASH_SCREEN = _Paths.SPLASH_SCREEN;
+  static const AROUND_DETAIL = _Paths.AROUND_DETAIL;
 }
 
 abstract class _Paths {
@@ -43,4 +45,6 @@ abstract class _Paths {
   static const LAINNYA = '/lainnya';
   static const CHOOSE_SLOT = '/choose-slot';
   static const COMPLETE_PAYMENT = '/complete-payment';
+  static const SPLASH_SCREEN = '/splash-screen';
+  static const AROUND_DETAIL = '/around-detail';
 }

@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 
 import '../data/models/place.dart';
+import '../modules/around_detail/bindings/around_detail_binding.dart';
+import '../modules/around_detail/views/around_detail_view.dart';
 import '../modules/booking/bindings/booking_binding.dart';
 import '../modules/booking/views/booking_view.dart';
 import '../modules/cariparkir/bindings/cariparkir_binding.dart';
@@ -37,13 +39,15 @@ import '../modules/setting/bindings/setting_binding.dart';
 import '../modules/setting/views/setting_view.dart';
 import '../modules/signup/bindings/signup_binding.dart';
 import '../modules/signup/views/signup_view.dart';
+import '../modules/splash_screen/bindings/splash_screen_binding.dart';
+import '../modules/splash_screen/views/splash_screen_view.dart';
 
 part 'app_routes.dart';
 
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.ONBOARDING;
+  static const INITIAL = Routes.SPLASH_SCREEN;
 
   static final routes = [
     GetPage(
@@ -139,6 +143,18 @@ class AppPages {
       name: _Paths.COMPLETE_PAYMENT,
       page: () => const CompletePaymentView(),
       binding: CompletePaymentBinding(),
+    ),
+    GetPage(
+      name: _Paths.SPLASH_SCREEN,
+      page: () => const SplashScreenView(),
+      binding: SplashScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.AROUND_DETAIL,
+      page: () =>  AroundDetailView(
+        Get.arguments
+      ),
+      binding: AroundDetailBinding(),
     ),
   ];
 }

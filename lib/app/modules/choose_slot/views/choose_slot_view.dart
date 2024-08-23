@@ -150,7 +150,7 @@ class ChooseSlotView extends GetView<ChooseSlotController> {
               decoration: BoxDecoration(
                   color: Colors.transparent,
                   border: Border.all(color: Colors.black, width: 2)),
-              child: Text(
+              child: const Text(
                 "Pintu Masuk",
                 textAlign: TextAlign.center,
               ),
@@ -180,8 +180,11 @@ class ChooseSlotView extends GetView<ChooseSlotController> {
                       ),
                       Text("Kosong"),
                       Padding(
-                        padding:  EdgeInsets.only(left: width * 0.5),
-                        child: Text("Keluar ->", style: poppins,),
+                        padding: EdgeInsets.only(left: width * 0.5),
+                        child: Text(
+                          "Keluar ->",
+                          style: poppins,
+                        ),
                       )
                     ],
                   ),
@@ -199,11 +202,9 @@ class ChooseSlotView extends GetView<ChooseSlotController> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(
-
-                  top: height * 0.05,
-                  bottom: height * 0.03),
-              child:  Row(
+              padding:
+                  EdgeInsets.only(top: height * 0.05, bottom: height * 0.03),
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   const Text(
@@ -211,7 +212,7 @@ class ChooseSlotView extends GetView<ChooseSlotController> {
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   Padding(
-                    padding:  EdgeInsets.only(right: width * 0.2),
+                    padding: EdgeInsets.only(right: width * 0.2),
                     child: const Text(
                       "A",
                       style: TextStyle(fontWeight: FontWeight.bold),
@@ -233,7 +234,7 @@ class ChooseSlotView extends GetView<ChooseSlotController> {
               padding: EdgeInsets.only(top: height * 0.04, left: width * 0.01),
               child: GestureDetector(
                 onTap: () {
-                  Get.off(const BookingView());
+                  Get.offAll(const BookingView());
                 },
                 child: Container(
                   height: height * 0.07,
