@@ -23,6 +23,8 @@ import '../modules/lainnya/bindings/lainnya_binding.dart';
 import '../modules/lainnya/views/lainnya_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/maps/bindings/maps_binding.dart';
+import '../modules/maps/views/maps_view.dart';
 import '../modules/navigation/bindings/navigation_binding.dart';
 import '../modules/navigation/views/navigation_view.dart';
 import '../modules/onboarding/bindings/onboarding_binding.dart';
@@ -151,10 +153,13 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.AROUND_DETAIL,
-      page: () =>  AroundDetailView(
-        Get.arguments
-      ),
+      page: () => AroundDetailView(Get.arguments),
       binding: AroundDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.MAPS,
+      page: () => const MapsView(),
+      binding: MapsBinding(),
     ),
   ];
 }

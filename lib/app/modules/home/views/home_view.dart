@@ -1,6 +1,7 @@
 import 'package:ez_parky/app/data/const/colors.dart';
 import 'package:ez_parky/app/data/const/fonts.dart';
 import 'package:ez_parky/app/modules/detail_place/views/detail_place_view.dart';
+import 'package:ez_parky/app/modules/maps/views/maps_view.dart';
 import 'package:ez_parky/app/modules/onparking/views/onparking_view.dart';
 import 'package:ez_parky/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class HomeView extends GetView<HomeController> {
         MediaQuery.of(Get.context!).size.height - AppBar().preferredSize.height;
     final width = MediaQuery.of(context).size.width;
     final Map<String, Widget> pageRoutes = {
-      'Cari Parkir': CariparkirView(),
+      'Cari Parkir': MapsView(),
       'Booking': BookingView(),
       'Sekitarmu': SekitarmuView(),
       'On Parking': OnparkingView(),
