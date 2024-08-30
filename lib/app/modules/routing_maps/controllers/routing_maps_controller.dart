@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-class MapsController extends GetxController {
-  //TODO: Implement MapsController
+class RoutingMapsController extends GetxController {
+  //TODO: Implement RoutingMapsController
 
   final count = 0.obs;
   @override

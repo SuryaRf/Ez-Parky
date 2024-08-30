@@ -22,7 +22,7 @@ class HomeView extends GetView<HomeController> {
         MediaQuery.of(Get.context!).size.height - AppBar().preferredSize.height;
     final width = MediaQuery.of(context).size.width;
     final Map<String, Widget> pageRoutes = {
-      'Cari Parkir': MapsView(),
+      'Cari Parkir': CariparkirView(),
       'Booking': BookingView(),
       'Sekitarmu': SekitarmuView(),
       'On Parking': OnparkingView(),

@@ -23,7 +23,6 @@ import '../modules/lainnya/bindings/lainnya_binding.dart';
 import '../modules/lainnya/views/lainnya_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
-import '../modules/maps/bindings/maps_binding.dart';
 import '../modules/maps/views/maps_view.dart';
 import '../modules/navigation/bindings/navigation_binding.dart';
 import '../modules/navigation/views/navigation_view.dart';
@@ -33,6 +32,8 @@ import '../modules/onparking/bindings/onparking_binding.dart';
 import '../modules/onparking/views/onparking_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
+import '../modules/routing_maps/bindings/routing_maps_binding.dart';
+import '../modules/routing_maps/views/routing_maps_view.dart';
 import '../modules/scan_page/bindings/scan_page_binding.dart';
 import '../modules/scan_page/views/scan_page_view.dart';
 import '../modules/sekitarmu/bindings/sekitarmu_binding.dart';
@@ -157,9 +158,9 @@ class AppPages {
       binding: AroundDetailBinding(),
     ),
     GetPage(
-      name: _Paths.MAPS,
-      page: () => const MapsView(),
-      binding: MapsBinding(),
+      name: _Paths.ROUTING_MAPS,
+      page: () => const RoutingMapsView(),
+      binding: RoutingMapsBinding(),
     ),
   ];
 }
