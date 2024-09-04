@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import '../../../data/const/colors.dart';
 import '../../../data/const/fonts.dart';
 import '../controllers/routing_maps_controller.dart';

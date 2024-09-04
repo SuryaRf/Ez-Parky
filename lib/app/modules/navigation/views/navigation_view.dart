@@ -3,6 +3,7 @@ import 'package:ez_parky/app/modules/history/views/history_view.dart';
 import 'package:ez_parky/app/modules/home/views/home_view.dart';
 import 'package:ez_parky/app/modules/profile/views/profile_view.dart';
 import 'package:ez_parky/app/modules/scan_page/views/scan_page_view.dart';
+import 'package:ez_parky/app/modules/scan_qr/scan_qr.dart';
 import 'package:ez_parky/app/modules/setting/views/setting_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -52,7 +53,7 @@ class _NavigationViewState extends State<NavigationView> {
         ),
         backgroundColor: blueElement,
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const ScanPageView()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const ScanQr()));
         },
         child: const Icon(
           Icons.keyboard_command_key_outlined,
