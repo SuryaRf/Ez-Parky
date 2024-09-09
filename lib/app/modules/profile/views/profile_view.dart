@@ -186,9 +186,12 @@ class ProfileView extends GetView<ProfileController> {
                 ],
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(top: height * 0.04, left: width * 0.06), 
-              child: Image.asset("assets/icon/logout.png", height: height * 0.03),
+            GestureDetector(
+              onTap: () => Navigator.popUntil(context, (route) => route.isFirst),
+              child: Padding(
+                padding: EdgeInsets.only(top: height * 0.04, left: width * 0.06), 
+                child: Image.asset("assets/icon/logout.png", height: height * 0.03),
+              ),
             ),
           ],
         ),

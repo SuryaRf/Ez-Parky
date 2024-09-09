@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:qr_scanner_overlay/qr_scanner_overlay.dart';
-
+import 'package:http/http.dart' as http;
 import 'generate_qr.dart';
 import 'result_scan.dart';
 
@@ -24,6 +24,7 @@ class _ScanQrState extends State<ScanQr> {
   void closeScreen() {
     isScanCompleted = false;
   }
+
   MobileScannerController controller = MobileScannerController();
 
   @override
@@ -32,10 +33,11 @@ class _ScanQrState extends State<ScanQr> {
         MediaQuery.of(context).size.height - AppBar().preferredSize.height;
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
-      
       backgroundColor: Colors.white,
-      drawer: const Drawer(),
       appBar: AppBar(
+        leading: GestureDetector(
+            onTap: () => Navigator.pop(context),
+            child: const Icon(Icons.arrow_back)),
         iconTheme: const IconThemeData(color: Colors.black),
         title: Text(
           "Scan QR",
@@ -73,7 +75,7 @@ class _ScanQrState extends State<ScanQr> {
                   MaterialPageRoute(
                       builder: (BuildContext context) => const GenerateQr()));
             },
-            child: Icon(
+            child: const Icon(
               Icons.qr_code_2,
             ),
           ),
@@ -117,24 +119,29 @@ class _ScanQrState extends State<ScanQr> {
                       controller: MobileScannerController(
                         detectionSpeed: DetectionSpeed.noDuplicates,
                       ),
-                      onDetect: (capture) {
+                      onDetect: (capture) async {
                         final List<Barcode> barcodes = capture.barcodes;
                         final Uint8List? image = capture.image;
+                        final String? data = barcodes.first.rawValue;
+
                         for (final barcode in barcodes) {
                           print("BARCODE FOUND");
                         }
-                        if (!isScanCompleted) {
+                        if (data != null && !isScanCompleted) {
                           String code = barcodes.first.rawValue ?? "";
                           isScanCompleted = true;
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ResultScan(
-                                closeScreen: closeScreen,
-                                code: code,
-                              ),
-                            ),
-                          );
+                          // Kirim data ke server Raspberry Pi setelah scan
+                          await sendDataToServer(data!);
+                          Navigator.pop(context); // Keluar setelah scan
+                          // Navigator.push(
+                          //   context, 
+                          //   MaterialPageRoute(
+                          //     builder: (context) => ResultScan(
+                          //       closeScreen: closeScreen,
+                          //       code: code,
+                          //     ),
+                          //   ),
+                          // );
                         }
                       },
                     ),
@@ -162,7 +169,23 @@ class _ScanQrState extends State<ScanQr> {
       ),
     );
   }
+
+  Future<void> sendDataToServer(String data) async {
+    final response = await http.post(
+      Uri.parse(data), // Data adalah URL yang dikodekan di QR Code
+      headers: {"Content-Type": "application/json"},
+      body: '{"data": "Some data from mobile"}', // Data yang ingin Anda kirim
+    );
+
+    if (response.statusCode == 200) {
+      print("Data sent successfully");
+    } else {
+      print("Failed to send data");
+    }
+  }
 }
+
+
 
 
 // MobileScanner(
