@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:ez_parky/app/data/const/colors.dart';
@@ -111,46 +112,28 @@ class _ScanQrState extends State<ScanQr> {
                   ),
                 ),
               ),
-              Expanded(
-                flex: 4,
-                child: Stack(
-                  children: [
-                    MobileScanner(
-                      controller: MobileScannerController(
-                        detectionSpeed: DetectionSpeed.noDuplicates,
-                      ),
-                      onDetect: (capture) async {
-                        final List<Barcode> barcodes = capture.barcodes;
-                        final Uint8List? image = capture.image;
+           Expanded(
+              child: Stack(
+                children: [
+                  MobileScanner(
+                    controller: controller,
+                    onDetect: (capture) async {
+                      if (isScanCompleted) return;
+                      final List<Barcode> barcodes = capture.barcodes;
+                      if (barcodes.isNotEmpty) {
                         final String? data = barcodes.first.rawValue;
 
-                        for (final barcode in barcodes) {
-                          print("BARCODE FOUND");
-                        }
-                        if (data != null && !isScanCompleted) {
-                          String code = barcodes.first.rawValue ?? "";
+                        if (data != null) {
                           isScanCompleted = true;
-                          // Kirim data ke server Raspberry Pi setelah scan
-                          await sendDataToServer(data!);
-                          Navigator.pop(context); // Keluar setelah scan
-                          // Navigator.push(
-                          //   context, 
-                          //   MaterialPageRoute(
-                          //     builder: (context) => ResultScan(
-                          //       closeScreen: closeScreen,
-                          //       code: code,
-                          //     ),
-                          //   ),
-                          // );
+                          await sendDataToServer(data, "True");
                         }
-                      },
-                    ),
-                    QRScannerOverlay(
-                      overlayColor: Colors.white,
-                    )
-                  ],
-                ),
+                      }
+                    },
+                  ),
+                  QRScannerOverlay(overlayColor: Colors.black.withOpacity(0.5)),
+                ],
               ),
+            ),
               Expanded(
                 child: Container(
                   alignment: Alignment.center,
@@ -170,20 +153,41 @@ class _ScanQrState extends State<ScanQr> {
     );
   }
 
-  Future<void> sendDataToServer(String data) async {
-    final response = await http.post(
-      Uri.parse(data), // Data adalah URL yang dikodekan di QR Code
-      headers: {"Content-Type": "application/json"},
-      body: '{"data": "Some data from mobile"}', // Data yang ingin Anda kirim
-    );
 
-    if (response.statusCode == 200) {
-      print("Data sent successfully");
-    } else {
-      print("Failed to send data");
+
+  Future<void> sendDataToServer(String url, String openGate) async {
+    try {
+      final response = await http.post(
+        Uri.parse(url),
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode({"data": openGate}),  // True to open the gate, False to close
+      );
+
+      if (response.statusCode == 200) {
+        print("Gate updated successfully");
+      } else {
+        print("Failed to update gate: ${response.body}");
+      }
+    } catch (e) {
+      print("Error: $e");
     }
   }
 }
+
+//   Future<void> sendDataToServer(String data) async {
+//     final response = await http.post(
+//       Uri.parse(data), // Data adalah URL yang dikodekan di QR Code
+//       headers: {"Content-Type": "application/json"},
+//       body: '{"data": "Some data from mobile"}', // Data yang ingin Anda kirim
+//     );
+
+//     if (response.statusCode == 200) {
+//       print("Data sent successfully");
+//     } else {
+//       print("Failed to send data");
+//     }
+//   }
+// }
 
 
 

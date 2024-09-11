@@ -34,8 +34,7 @@ import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/routing_maps/bindings/routing_maps_binding.dart';
 import '../modules/routing_maps/views/routing_maps_view.dart';
-import '../modules/scan_page/bindings/scan_page_binding.dart';
-import '../modules/scan_page/views/scan_page_view.dart';
+
 import '../modules/sekitarmu/bindings/sekitarmu_binding.dart';
 import '../modules/sekitarmu/views/sekitarmu_view.dart';
 import '../modules/setting/bindings/setting_binding.dart';
@@ -106,11 +105,6 @@ class AppPages {
       name: _Paths.DETAIL_FLOORPLAN,
       page: () => const DetailFloorplanView(),
       binding: DetailFloorplanBinding(),
-    ),
-    GetPage(
-      name: _Paths.SCAN_PAGE,
-      page: () => const ScanPageView(),
-      binding: ScanPageBinding(),
     ),
     GetPage(
       name: _Paths.BOOKING,
