@@ -25,6 +25,7 @@ class _ScanQrState extends State<ScanQr> {
   void closeScreen() {
     isScanCompleted = false;
   }
+  bool isGateOpen = false;
 
   MobileScannerController controller = MobileScannerController();
 
@@ -112,28 +113,41 @@ class _ScanQrState extends State<ScanQr> {
                   ),
                 ),
               ),
-           Expanded(
-              child: Stack(
-                children: [
-                  MobileScanner(
-                    controller: controller,
-                    onDetect: (capture) async {
-                      if (isScanCompleted) return;
-                      final List<Barcode> barcodes = capture.barcodes;
-                      if (barcodes.isNotEmpty) {
-                        final String? data = barcodes.first.rawValue;
+            Expanded(
+                child: Stack(
+                  children: [
+                    MobileScanner(
+                      controller: controller,
+                      onDetect: (capture) async {
+                        if (isScanCompleted) return;
+                        final List<Barcode> barcodes = capture.barcodes;
+                        if (barcodes.isNotEmpty) {
+                          final String? data = barcodes.first.rawValue;
 
-                        if (data != null) {
-                          isScanCompleted = true;
-                          await sendDataToServer(data, "True");
+                          if (data != null) {
+                            isScanCompleted = true;
+                            
+                            // Kirim status True atau False berdasarkan apakah gate sudah terbuka atau belum
+                            await sendDataToServer(
+                                data, isGateOpen ? "False" : "True");
+
+                            // Toggle status gate
+                            isGateOpen = !isGateOpen;
+
+                            // Reset scan completion status setelah beberapa detik
+                            Future.delayed(const Duration(seconds: 3), () {
+                              setState(() {
+                                isScanCompleted = false;
+                              });
+                            });
+                          }
                         }
-                      }
-                    },
-                  ),
-                  QRScannerOverlay(overlayColor: Colors.black.withOpacity(0.5)),
-                ],
+                      },
+                    ),
+                    QRScannerOverlay(overlayColor: Colors.black.withOpacity(0.5)),
+                  ],
+                ),
               ),
-            ),
               Expanded(
                 child: Container(
                   alignment: Alignment.center,
@@ -155,16 +169,17 @@ class _ScanQrState extends State<ScanQr> {
 
 
 
-  Future<void> sendDataToServer(String url, String openGate) async {
+// Fungsi untuk mengirim data ke server
+  Future<void> sendDataToServer(String url, String status) async {
     try {
       final response = await http.post(
         Uri.parse(url),
         headers: {"Content-Type": "application/json"},
-        body: jsonEncode({"data": openGate}),  // True to open the gate, False to close
+        body: jsonEncode({"data": status}),  // Mengirim status True atau False
       );
 
       if (response.statusCode == 200) {
-        print("Gate updated successfully");
+        print("Gate ${status == 'True' ? 'opened' : 'closed'} successfully");
       } else {
         print("Failed to update gate: ${response.body}");
       }
