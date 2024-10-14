@@ -1,7 +1,6 @@
 import 'package:ez_parky/app/data/const/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pretty_qr_code/pretty_qr_code.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import '../../data/const/fonts.dart';
@@ -29,7 +28,7 @@ class _ResultScanState extends State<ResultScan> {
             widget.closeScreen();
             Navigator.pop(context);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
           ),
         ),
@@ -44,7 +43,7 @@ class _ResultScanState extends State<ResultScan> {
         child: Container(
           alignment: Alignment.center,
           child: Padding(
-            padding: EdgeInsets.all(12),
+            padding: const EdgeInsets.all(12),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

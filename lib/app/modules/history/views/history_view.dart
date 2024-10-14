@@ -7,12 +7,11 @@ import '../../../data/const/fonts.dart';
 import '../controllers/history_controller.dart';
 
 class HistoryView extends GetView<HistoryController> {
-  const HistoryView({Key? key}) : super(key: key);
+  const HistoryView({super.key});
   @override
   Widget build(BuildContext context) {
     final height =
         MediaQuery.of(Get.context!).size.height - AppBar().preferredSize.height;
-    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -23,13 +22,13 @@ class HistoryView extends GetView<HistoryController> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(
+                  const Padding(
+                    padding:  EdgeInsets.only(
                         top: 30, left: 15, right: 15, bottom: 30),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        const Padding(
+                         Padding(
                           padding: EdgeInsets.only(right: 15),
                           child: Icon(
                             Icons.notifications_none_rounded,

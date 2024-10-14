@@ -4,10 +4,7 @@ import 'package:ez_parky/app/modules/home/views/home_view.dart';
 import 'package:ez_parky/app/modules/profile/views/profile_view.dart';
 import 'package:ez_parky/app/modules/scan_qr/scan_qr.dart';
 import 'package:ez_parky/app/modules/setting/views/setting_view.dart';
-import 'package:ez_parky/open_gate_trial.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import '../controllers/navigation_controller.dart';
 
 class NavigationView extends StatefulWidget {
   final int initialPageIndex;
@@ -42,7 +39,7 @@ class _NavigationViewState extends State<NavigationView> {
       currentPageIndex = index;
     });
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

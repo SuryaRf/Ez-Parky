@@ -23,7 +23,6 @@ import '../modules/lainnya/bindings/lainnya_binding.dart';
 import '../modules/lainnya/views/lainnya_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
-import '../modules/maps/views/maps_view.dart';
 import '../modules/navigation/bindings/navigation_binding.dart';
 import '../modules/navigation/views/navigation_view.dart';
 import '../modules/onboarding/bindings/onboarding_binding.dart';

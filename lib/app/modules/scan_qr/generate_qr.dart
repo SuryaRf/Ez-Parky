@@ -12,6 +12,7 @@ class GenerateQr extends StatefulWidget {
 }
 
 class _GenerateQrState extends State<GenerateQr> {
+  // ignore: non_constant_identifier_names
   String? qr_data;
   @override
   Widget build(BuildContext context) {

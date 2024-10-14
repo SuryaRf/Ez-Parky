@@ -16,6 +16,7 @@ class SettingView extends GetView<SettingController> {
     return Scaffold(
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               color: blueElement,
@@ -60,35 +61,162 @@ class SettingView extends GetView<SettingController> {
               ),
             ),
             Padding(
-              padding:  EdgeInsets.only(top: height * 0.3),
-              child: Text.rich(
-                textAlign: TextAlign.center,
-                TextSpan(
-                  children: [
-                    TextSpan(
-                      text: "Maaf, hidup tidak bisa di  ",
-                      style: smallText.copyWith(color: blueText),
+              padding:  EdgeInsets.only(top: height * 0.04, left: width * 0.05),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    height: height * 0.06,
+                    width: width * 0.9,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.grey
+                      ),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.grey,
+                          blurRadius: 1,
+                          offset: Offset(0, 1),
+                          spreadRadius: 0.5,
+                        )
+                      ]
                     ),
-                    TextSpan(
-                      text: "Setting\n",
-                      style: smallText.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color:  blueText
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding:  EdgeInsets.only(left: width * 0.03),
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text("Ubah Profil"),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding:  EdgeInsets.only(left: width * 0.03),
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                         
+                                Icon(Icons.person)
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    TextSpan(
-                      text: "langsung hubungi tuhan saja\n",
-                      style: smallText.copyWith(color: blueText),
+                    
+                  ),
+                  Padding(
+                    padding:  EdgeInsets.only(top: height * 0.02),
+                    child: Container(
+                      height: height * 0.06,
+                      width: width * 0.9,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: Colors.grey
+                        ),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.grey,
+                            blurRadius: 1,
+                            offset: Offset(0, 1),
+                            spreadRadius: 0.5,
+                          )
+                        ]
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding:  EdgeInsets.only(left: width * 0.03),
+                              child: const Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text("Cek Kendaraan"),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding:  EdgeInsets.only(left: width * 0.03),
+                              child: const Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                           
+                                  Icon(Icons.car_rental)
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                       
                     ),
-                    TextSpan(
-                      text: "Terima kasih",
-                      style: smallText.copyWith(color: blueText),
+                  ),
+                  Padding(
+                    padding:  EdgeInsets.only(top: height * 0.02),
+                    child: Container(
+                      height: height * 0.06,
+                      width: width * 0.9,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: Colors.grey
+                        ),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.grey,
+                            blurRadius: 1,
+                            offset: Offset(0, 1),
+                            spreadRadius: 0.5,
+                          )
+                        ]
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding:  EdgeInsets.only(left: width * 0.03),
+                              child: const Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text("Ubah Bahasa"),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding:  EdgeInsets.only(left: width * 0.03),
+                              child: const Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                           
+                                  Icon(Icons.language)
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                       
                     ),
-                  ],
-                ),
-              ),
+                  ),
+                ],
+              )
             ),
           ],
         ),

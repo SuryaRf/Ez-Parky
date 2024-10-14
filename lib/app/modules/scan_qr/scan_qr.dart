@@ -1,15 +1,12 @@
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:ez_parky/app/data/const/colors.dart';
 import 'package:ez_parky/app/data/const/fonts.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:qr_scanner_overlay/qr_scanner_overlay.dart';
 import 'package:http/http.dart' as http;
 import 'generate_qr.dart';
-import 'result_scan.dart';
 
 class ScanQr extends StatefulWidget {
   const ScanQr({super.key});
@@ -33,7 +30,7 @@ class _ScanQrState extends State<ScanQr> {
   Widget build(BuildContext context) {
     final height =
         MediaQuery.of(context).size.height - AppBar().preferredSize.height;
-    final width = MediaQuery.of(context).size.width;
+    // final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -123,14 +120,11 @@ class _ScanQrState extends State<ScanQr> {
                         final List<Barcode> barcodes = capture.barcodes;
                         if (barcodes.isNotEmpty) {
                           final String? data = barcodes.first.rawValue;
-
                           if (data != null) {
                             isScanCompleted = true;
-                            
                             // Kirim status True atau False berdasarkan apakah gate sudah terbuka atau belum
                             await sendDataToServer(
                                 data, isGateOpen ? "False" : "True");
-
                             // Toggle status gate
                             isGateOpen = !isGateOpen;
 
