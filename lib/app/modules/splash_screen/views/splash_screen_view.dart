@@ -24,7 +24,7 @@ class SplashScreenView extends GetView<SplashScreenController> {
               Column(
                 children: [
                   Container(
-                    height: height * 0.465,
+                    height: height * 0.425,
                     width: width,
                     decoration: const BoxDecoration(
                       color: orange,
@@ -38,7 +38,7 @@ class SplashScreenView extends GetView<SplashScreenController> {
                     ),
                   ),
                   Container(
-                    height: height * 0.498,
+                    height: height * 0.478,
                     width: width,
                     decoration: const BoxDecoration(
                       color: blueElement,

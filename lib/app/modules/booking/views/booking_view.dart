@@ -10,6 +10,7 @@ class BookingView extends GetView<BookingController> {
   const BookingView({Key? key}) : super(key: key);
 
   void _showBookingConfirmation(BuildContext context) {
+    final url = 'http://172.20.10.3/booking';
     final height =
         MediaQuery.of(Get.context!).size.height - AppBar().preferredSize.height;
     final width = MediaQuery.of(context).size.width;
@@ -177,6 +178,9 @@ class BookingView extends GetView<BookingController> {
                     child: ElevatedButton(
                       onPressed: () {
                         Get.to(const CompletePaymentView());
+                        // ngirim data ke raspi booking nya
+                        
+
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: orange,
@@ -217,199 +221,201 @@ class BookingView extends GetView<BookingController> {
         title: const Text('Booking Slot'),
         centerTitle: true,
       ),
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: width * 0.1),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: ClipPath(
-                      clipper: LeftArrowClipper(),
-                      child: Container(
-                        height: 50,
-                        color: blueElement,
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text("12.00",
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: width * 0.1),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: ClipPath(
+                        clipper: LeftArrowClipper(),
+                        child: Container(
+                          height: 50,
+                          color: blueElement,
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text("12.00",
+                                    style: poppins.copyWith(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                        fontSize: 16)),
+                                Text(
+                                  "Min, 29 Okt 2023",
+                                  style: poppins.copyWith(
+                                      color: Colors.white, fontSize: 12),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: ClipPath(
+                        clipper: RightArrowClipper(),
+                        child: Container(
+                          height: 50,
+                          decoration: const BoxDecoration(
+                              color: orange,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(20),
+                                bottomLeft: Radius.circular(20),
+                              )),
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "16.00",
                                   style: poppins.copyWith(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white,
-                                      fontSize: 16)),
-                              Text(
-                                "Min, 29 Okt 2023",
-                                style: poppins.copyWith(
-                                    color: Colors.white, fontSize: 12),
-                              ),
-                            ],
+                                      fontSize: 16),
+                                ),
+                                Text(
+                                  "Min, 29 Okt 2023",
+                                  style: poppins.copyWith(
+                                      color: Colors.white, fontSize: 12),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  Expanded(
-                    child: ClipPath(
-                      clipper: RightArrowClipper(),
-                      child: Container(
-                        height: 50,
-                        decoration: const BoxDecoration(
-                            color: orange,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(20),
-                              bottomLeft: Radius.circular(20),
-                            )),
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "16.00",
-                                style: poppins.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                    fontSize: 16),
-                              ),
-                              Text(
-                                "Min, 29 Okt 2023",
-                                style: poppins.copyWith(
-                                    color: Colors.white, fontSize: 12),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: height * 0.04, left: width * 0.1),
-              child: Column(
-                crossAxisAlignment:
-                    CrossAxisAlignment.start, // Aligns content to the left
-                children: [
-                  Text(
-                    "Lokasi*",
-                    style: poppins.copyWith(
-                        color: blueText, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: height * 0.01),
-                  Text(
-                    "Matos Pintu Utara",
-                    style: poppins.copyWith(
-                        color: blueText.withOpacity(0.3),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(
-                        top:
-                            5.0), // Optional: Adds some spacing between the text and underline
-                    height: 1.3, // Height of the underline
-                    color: blueElement.withOpacity(0.3), // Underline color
-                    width:
-                        width * 0.8, // Makes the underline as long as possible
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: height * 0.04, left: width * 0.1),
-              child: Column(
-                crossAxisAlignment:
-                    CrossAxisAlignment.start, // Aligns content to the left
-                children: [
-                  Text(
-                    "Nomor Kendaraan*",
-                    style: poppins.copyWith(
-                        color: blueText, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: height * 0.01),
-                  Text(
-                    "L     6750       K",
-                    style: poppins.copyWith(
-                        color: blueText.withOpacity(0.3),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(
-                        top:
-                            5.0), // Optional: Adds some spacing between the text and underline
-                    height: 1.3, // Height of the underline
-                    color: blueElement.withOpacity(0.3), // Underline color
-                    width:
-                        width * 0.8, // Makes the underline as long as possible
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: height * 0.04, left: width * 0.1),
-              child: Column(
-                crossAxisAlignment:
-                    CrossAxisAlignment.start, // Aligns content to the left
-                children: [
-                  InkWell(
-                    onTap: () => Get.to(const ChooseSlotView()),
-                    child: Text(
-                      "Pilih Slot   >",
+              Padding(
+                padding: EdgeInsets.only(top: height * 0.04, left: width * 0.1),
+                child: Column(
+                  crossAxisAlignment:
+                      CrossAxisAlignment.start, // Aligns content to the left
+                  children: [
+                    Text(
+                      "Lokasi*",
                       style: poppins.copyWith(
                           color: blueText, fontWeight: FontWeight.bold),
                     ),
-                  ),
-                  SizedBox(height: height * 0.01),
-                  Text(
-                    "LG - B14",
-                    style: poppins.copyWith(
-                        color: blueText.withOpacity(0.3),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(
-                        top:
-                            5.0), // Optional: Adds some spacing between the text and underline
-                    height: 1.3, // Height of the underline
-                    color: blueElement.withOpacity(0.3), // Underline color
-                    width:
-                        width * 0.8, // Makes the underline as long as possible
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: height * 0.04, left: width * 0.05),
-              child: Image.asset("assets/icon/Date.png", width: width * 0.9),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: height * 0.3, left: width * 0.05),
-              child: GestureDetector(
-                onTap: () {
-                  _showBookingConfirmation(context);
-                },
-                child: Container(
-                  height: height * 0.07,
-                  width: width * 0.9,
-                  decoration: BoxDecoration(
-                    color: orange,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Center(
-                      child: Text("Pesan Sekarang",
-                          style: poppins.copyWith(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold))),
+                    SizedBox(height: height * 0.01),
+                    Text(
+                      "Matos Pintu Utara",
+                      style: poppins.copyWith(
+                          color: blueText.withOpacity(0.3),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(
+                          top:
+                              5.0), // Optional: Adds some spacing between the text and underline
+                      height: 1.3, // Height of the underline
+                      color: blueElement.withOpacity(0.3), // Underline color
+                      width:
+                          width * 0.8, // Makes the underline as long as possible
+                    ),
+                  ],
                 ),
               ),
-            )
-          ],
+              Padding(
+                padding: EdgeInsets.only(top: height * 0.04, left: width * 0.1),
+                child: Column(
+                  crossAxisAlignment:
+                      CrossAxisAlignment.start, // Aligns content to the left
+                  children: [
+                    Text(
+                      "Nomor Kendaraan*",
+                      style: poppins.copyWith(
+                          color: blueText, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: height * 0.01),
+                    Text(
+                      "L     6750       K",
+                      style: poppins.copyWith(
+                          color: blueText.withOpacity(0.3),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(
+                          top:
+                              5.0), // Optional: Adds some spacing between the text and underline
+                      height: 1.3, // Height of the underline
+                      color: blueElement.withOpacity(0.3), // Underline color
+                      width:
+                          width * 0.8, // Makes the underline as long as possible
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: height * 0.04, left: width * 0.1),
+                child: Column(
+                  crossAxisAlignment:
+                      CrossAxisAlignment.start, // Aligns content to the left
+                  children: [
+                    InkWell(
+                      onTap: () => Get.to(const ChooseSlotView()),
+                      child: Text(
+                        "Pilih Slot   >",
+                        style: poppins.copyWith(
+                            color: blueText, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    SizedBox(height: height * 0.01),
+                    Text(
+                      "LG - B14",
+                      style: poppins.copyWith(
+                          color: blueText.withOpacity(0.3),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(
+                          top:
+                              5.0), // Optional: Adds some spacing between the text and underline
+                      height: 1.3, // Height of the underline
+                      color: blueElement.withOpacity(0.3), // Underline color
+                      width:
+                          width * 0.8, // Makes the underline as long as possible
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: height * 0.04, left: width * 0.05),
+                child: Image.asset("assets/icon/Date.png", width: width * 0.9),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: height * 0.3, left: width * 0.05),
+                child: GestureDetector(
+                  onTap: () {
+                    _showBookingConfirmation(context);
+                  },
+                  child: Container(
+                    height: height * 0.07,
+                    width: width * 0.9,
+                    decoration: BoxDecoration(
+                      color: orange,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Center(
+                        child: Text("Pesan Sekarang",
+                            style: poppins.copyWith(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold))),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

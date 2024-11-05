@@ -7,7 +7,7 @@ import '../../../data/const/fonts.dart';
 import '../controllers/setting_controller.dart';
 
 class SettingView extends GetView<SettingController> {
-  const SettingView({Key? key}) : super(key: key);
+  const SettingView({super.key});
   @override
   Widget build(BuildContext context) {
     final height =

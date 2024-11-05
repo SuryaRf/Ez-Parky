@@ -1,4 +1,3 @@
-import 'package:ez_parky/app/data/const/colors.dart';
 import 'package:ez_parky/app/data/const/fonts.dart';
 import 'package:ez_parky/app/modules/login/views/login_view.dart';
 import 'package:ez_parky/app/modules/signup/views/signup_view.dart';
@@ -9,7 +8,7 @@ import 'package:get/get.dart';
 import '../controllers/onboarding_controller.dart';
 
 class OnboardingView extends GetView<OnboardingController> {
-  const OnboardingView({Key? key}) : super(key: key);
+  const OnboardingView({super.key});
   @override
   Widget build(BuildContext context) {
     final height =

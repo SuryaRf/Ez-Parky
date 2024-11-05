@@ -158,11 +158,11 @@ class SekitarmuView extends GetView<SekitarmuController> {
               SizedBox(
                 height: height * 0.6,
                 child: ListView.builder(
-                  itemCount: placeRecomendations.length,
+                  itemCount: placess.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () => Get.to(
-                        () => AroundDetailView(placeRecomendations[index]),
+                        () => AroundDetailView(placess[index]),
                       ),
                       child: Padding(
                         padding: EdgeInsets.only(
@@ -196,14 +196,14 @@ class SekitarmuView extends GetView<SekitarmuController> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      placeRecomendations[index].name,
+                                      placess[index].name,
                                       style: poppins.copyWith(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 13,
                                           color: Colors.black),
                                     ),
                                     Text(
-                                      placeRecomendations[index].type,
+                                      placess[index].type,
                                       style: poppins.copyWith(fontSize: 10),
                                     ),
                                     Padding(
@@ -216,7 +216,7 @@ class SekitarmuView extends GetView<SekitarmuController> {
                                               right: width * 0.02,
                                             ),
                                             child: Text(
-                                                placeRecomendations[index]
+                                                placess[index]
                                                     .distance,
                                                 style: poppins.copyWith(
                                                     fontSize: 10)),
@@ -235,7 +235,7 @@ class SekitarmuView extends GetView<SekitarmuController> {
                                             padding: EdgeInsets.only(
                                                 right: width * 0.02),
                                             child: Text(
-                                                placeRecomendations[index]
+                                                placess[index]
                                                     .duration,
                                                 style: poppins.copyWith(
                                                     fontSize: 10)),
@@ -251,7 +251,7 @@ class SekitarmuView extends GetView<SekitarmuController> {
                                             ),
                                           ),
                                           Text(
-                                              placeRecomendations[index]
+                                              placess[index]
                                                   .description,
                                               style:
                                                   poppins.copyWith(fontSize: 10)),
