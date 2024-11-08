@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:ez_parky/app/data/const/colors.dart';
 import 'package:ez_parky/app/data/const/fonts.dart';
 import 'package:ez_parky/app/modules/choose_slot/views/choose_slot_view.dart';
@@ -5,12 +6,13 @@ import 'package:ez_parky/app/modules/complete_payment/views/complete_payment_vie
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/booking_controller.dart';
+import 'package:http/http.dart' as http;
 
 class BookingView extends GetView<BookingController> {
   const BookingView({Key? key}) : super(key: key);
 
   void _showBookingConfirmation(BuildContext context) {
-    final url = 'http://172.20.10.3/booking';
+    final url = 'http://192.168.234.87:5000/parking';
     final height =
         MediaQuery.of(Get.context!).size.height - AppBar().preferredSize.height;
     final width = MediaQuery.of(context).size.width;
@@ -175,11 +177,12 @@ class BookingView extends GetView<BookingController> {
                   SizedBox(height: height * 0.06, ),
                   Padding(
                     padding:  EdgeInsets.only(left: width * 0.05, right: width * 0.06,),
-                    child: ElevatedButton(
+                    child: ElevatedButton (
                       onPressed: () {
                         Get.to(const CompletePaymentView());
-                        // ngirim data ke raspi booking nya
                         
+                        sendDataToServer(url, '5 ');
+
 
                       },
                       style: ElevatedButton.styleFrom(
@@ -459,3 +462,22 @@ class RightArrowClipper extends CustomClipper<Path> {
     return false;
   }
 }
+
+  Future<void> sendDataToServer(String url, String status) async {
+    try {
+      final response = await http.post(
+        Uri.parse(url),
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode({"index": status}),  // Mengirim status True atau False
+      );
+
+      if (response.statusCode == 200) {
+        print("Booking ${status == 'True' ? 'opened' : 'closed'} successfully");
+      } else {
+        print("Failed to update Booking: ${response.body}");
+      }
+    } catch (e) {
+      print("Error: $e");
+    }
+  }
+

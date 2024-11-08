@@ -6,6 +6,7 @@ environment:
   sdk: '>=3.4.3 <4.0.0'
 
 dependencies:
+  carousel_slider: ^5.0.0
   cupertino_icons: ^1.0.6
   flutter:
     sdk: flutter
@@ -16,6 +17,7 @@ dependencies:
   pretty_qr_code: ^3.3.0
   qr_flutter: ^4.1.0
   qr_scanner_overlay: ^0.0.2
+  smooth_page_indicator: ^1.2.0+3
 
 dev_dependencies:
   flutter_lints: ^5.0.0

@@ -48,7 +48,7 @@ class _NavigationViewState extends State<NavigationView> {
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(45.0)),
         ),
-        backgroundColor: blueElement,
+        backgroundColor: Colors.blueAccent,
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) =>   const ScanQr()));
         },
@@ -63,7 +63,7 @@ class _NavigationViewState extends State<NavigationView> {
         child: _children[currentPageIndex],
       ),
       bottomNavigationBar: BottomAppBar(
-        color: blueElement.withOpacity(0.1),
+        color: Colors.blueAccent.withOpacity(0.1),
         shape: const CircularNotchedRectangle(),
         child: SizedBox(
           height: 60,
@@ -78,13 +78,13 @@ class _NavigationViewState extends State<NavigationView> {
                   children: [
                     Icon(
                       Icons.home_filled,
-                      color: currentPageIndex == 0 ? blueElement : Colors.grey,
+                      color: currentPageIndex == 0 ? Colors.blueAccent : Colors.grey,
                     ),
                     if (currentPageIndex == 0)
                       Text(
                         "Home",
                         style: TextStyle(
-                          color: currentPageIndex == 0 ? blueElement : Colors.grey,
+                          color: currentPageIndex == 0 ? Colors.blueAccent : Colors.grey,
                         ),
                       ),
                   ],
@@ -98,13 +98,13 @@ class _NavigationViewState extends State<NavigationView> {
                   children: [
                     Icon(
                       Icons.history,
-                      color: currentPageIndex == 1 ? blueElement : Colors.grey,
+                      color: currentPageIndex == 1 ? Colors.blueAccent : Colors.grey,
                     ),
                     if (currentPageIndex == 1)
                       Text(
                         "History",
                         style: TextStyle(
-                          color: currentPageIndex == 1 ? blueElement : Colors.grey,
+                          color: currentPageIndex == 1 ? Colors.blueAccent : Colors.grey,
                         ),
                       ),
                   ],
@@ -119,13 +119,13 @@ class _NavigationViewState extends State<NavigationView> {
                   children: [
                     Icon(
                       Icons.settings,
-                      color: currentPageIndex == 2 ? blueElement : Colors.grey,
+                      color: currentPageIndex == 2 ? Colors.blueAccent : Colors.grey,
                     ),
                     if (currentPageIndex == 2)
                       Text(
                         "Settings",
                         style: TextStyle(
-                          color: currentPageIndex == 2 ? blueElement : Colors.grey,
+                          color: currentPageIndex == 2 ? Colors.blueAccent : Colors.grey,
                         ),
                       ),
                   ],
@@ -139,13 +139,13 @@ class _NavigationViewState extends State<NavigationView> {
                   children: [
                     Icon(
                       Icons.person,
-                      color: currentPageIndex == 3 ? blueElement : Colors.grey,
+                      color: currentPageIndex == 3 ? Colors.blueAccent : Colors.grey,
                     ),
                     if (currentPageIndex == 3)
                       Text(
                         "Profile",
                         style: TextStyle(
-                          color: currentPageIndex == 3 ? blueElement : Colors.grey,
+                          color: currentPageIndex == 3 ? Colors.blueAccent : Colors.grey,
                         ),
                       ),
                   ],

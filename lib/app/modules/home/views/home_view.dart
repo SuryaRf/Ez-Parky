@@ -36,7 +36,7 @@ class HomeView extends GetView<HomeController> {
               Column(
                 children: [
                   Container(
-                    color: blueElement,
+                    color: Colors.blueAccent,
                     height: height * 0.27,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -137,12 +137,32 @@ class HomeView extends GetView<HomeController> {
                                   ],
                                 ),
                               ),
+                              SizedBox(height: 10,),
+                              Container(
+                                width: width * 0.9,
+                                height: height * 0.03,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: Colors.yellowAccent,
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 10, right: 10),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                          "Tips: cek lokasi sebelum tiba, lihat parkir di sekitarmu !", style: smallText.copyWith(fontWeight: FontWeight.bold),),
+                                  
+                                    ],
+                                  ),
+                                ),
+                              ),
                             ],
                           ),
                         ),
                       ],
                     ),
                   ),
+
                   SizedBox(
                       height: height *
                           0.1), // Placeholder for space between Container and body
@@ -323,11 +343,9 @@ class HomeView extends GetView<HomeController> {
                             // final place = places[index];
                             return InkWell(
                               onTap: () {
-  
                                 Get.toNamed(
                                   Routes.DETAIL_PLACE,
-                                  arguments: places[
-                                      index], 
+                                  arguments: places[index],
                                 );
                               },
                               child: SizedBox(
