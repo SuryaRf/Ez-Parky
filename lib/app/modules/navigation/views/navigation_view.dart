@@ -53,7 +53,7 @@ class _NavigationViewState extends State<NavigationView> {
           Navigator.push(context, MaterialPageRoute(builder: (context) =>   const ScanQr()));
         },
         child: const Icon(
-          Icons.keyboard_command_key_outlined,
+          Icons.qr_code_scanner,
           color: Colors.white,
         ),
       ),

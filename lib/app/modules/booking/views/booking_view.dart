@@ -12,7 +12,7 @@ class BookingView extends GetView<BookingController> {
   const BookingView({Key? key}) : super(key: key);
 
   void _showBookingConfirmation(BuildContext context) {
-    final url = 'http://192.168.234.87:5000/parking';
+    final url = 'http://172.20.10.3:5000/parking';
     final height =
         MediaQuery.of(Get.context!).size.height - AppBar().preferredSize.height;
     final width = MediaQuery.of(context).size.width;
@@ -179,10 +179,8 @@ class BookingView extends GetView<BookingController> {
                     padding:  EdgeInsets.only(left: width * 0.05, right: width * 0.06,),
                     child: ElevatedButton (
                       onPressed: () {
-                        Get.to(const CompletePaymentView());
-                        
+                        Get.to(const CompletePaymentView());     
                         sendDataToServer(url, '5 ');
-
 
                       },
                       style: ElevatedButton.styleFrom(

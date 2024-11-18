@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "479412690893",
+    "project_id": "ez-parky-4a842",
+    "storage_bucket": "ez-parky-4a842.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:479412690893:android:5b3a5b852d8ab752146e84",
+        "android_client_info": {
+          "package_name": "com.ezparky.ez_parky"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxHYb1XfcfRPjxAzdSthiuDOphuUXB0VM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

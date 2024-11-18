@@ -43,7 +43,7 @@ class HomeView extends GetView<HomeController> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(
-                              top: 30, left: 15, bottom: 30),
+                              top: 30, left: 15, bottom: 10),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -137,21 +137,26 @@ class HomeView extends GetView<HomeController> {
                                   ],
                                 ),
                               ),
-                              SizedBox(height: 10,),
+                              SizedBox(
+                                height: 10,
+                              ),
                               Container(
-                                width: width * 0.9,
+                                width: width * 0.93,
                                 height: height * 0.03,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
                                   color: Colors.yellowAccent,
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.only(left: 10, right: 10),
+                                  padding: const EdgeInsets.only(
+                                      left: 10, right: 10),
                                   child: Row(
                                     children: [
                                       Text(
-                                          "Tips: cek lokasi sebelum tiba, lihat parkir di sekitarmu !", style: smallText.copyWith(fontWeight: FontWeight.bold),),
-                                  
+                                        "Tips: cek lokasi sebelum tiba, lihat parkir di sekitarmu !",
+                                        style: smallText.copyWith(
+                                            fontWeight: FontWeight.bold),
+                                      ),
                                     ],
                                   ),
                                 ),
