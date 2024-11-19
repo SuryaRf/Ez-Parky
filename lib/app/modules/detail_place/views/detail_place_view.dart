@@ -404,6 +404,34 @@ class DetailPlaceView extends GetView<DetailPlaceController> {
                 ),
               ),
             ),
+            SizedBox(height: width * 0.02),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: SizedBox(
+                        height: height * 0.13,
+                        child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: places.length,
+                            itemBuilder: (context, index) {
+                              return SizedBox(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 20),
+                                  child: Column(
+                                    children: [
+                                      Image.asset(
+                                        places[0].imgAsset,
+                                        width: width * 0.5,
+                                      ),
+                                      SizedBox(
+                                        height: height * 0.01,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            }),
+                      ),
+            ),
           ],
         ),
       ),
